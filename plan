@@ -1,0 +1,30 @@
+I just need a space where I can think through this app.
+
+Lab Guidelines:
+Create all CRUD routes for at least one model. Use the red, green, refactor process.
+
+You should have some interaction to put in your service. Some examples:
+
+send an email with Amazon SES
+fetch from a web API to fill in data
+save a file to Amazon S3
+use the tensorflow toxicity model to reject toxic text
+
+CRUD routes-
+POST
+GET
+GETID
+PUT 
+DELETE
+
+Was going to do a third part API, but decided to try the Amazon SES...mostly because idk what it is. 
+https://aws.amazon.com/ses/
+--this requires your CC account, idk if I am comfortable with that
+--might look into another thing
+https://github.com/tensorflow/tfjs-models/tree/master/toxicity
+--This would be cool for future reference. Sus out toxic messages for websites. 
+--not exactly sure how to use this, but I will forsure ask. 
+https://www.boredapi.com/
+--I could create a user and have them sign in 
+--get a random activity
+
