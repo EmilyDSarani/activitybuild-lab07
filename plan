@@ -17,14 +17,31 @@ GETID
 PUT 
 DELETE
 
-Was going to do a third part API, but decided to try the Amazon SES...mostly because idk what it is. 
-https://aws.amazon.com/ses/
---this requires your CC account, idk if I am comfortable with that
---might look into another thing
+
 https://github.com/tensorflow/tfjs-models/tree/master/toxicity
 --This would be cool for future reference. Sus out toxic messages for websites. 
 --not exactly sure how to use this, but I will forsure ask. 
-https://www.boredapi.com/
---I could create a user and have them sign in 
---get a random activity
+
+From the File:
+-- got it downloaded via $ npm install @tensorflow/tfjs @tensorflow-models/toxicity
+-- require('@tensorflow/tfjs');
+const toxicity = require('@tensorflow-models/toxicity');
+
+-const threshold = 0.9; ---going to start with this and possible play around with it if there is time
+
+// Load the model. Users optionally pass in a threshold and an array of
+// labels to include.
+toxicity.load(threshold).then(model => {
+  const sentences = ['you suck'];  --- instead of you suck, I could do a req.body here and then the test will go through it
+
+--this part could even be a middleware, throwing it in on prediction. do the next() like we were shown in class. 
+
+  model.classify(sentences).then(predictions => {
+    // `predictions` is an array of objects, one for each prediction head,
+    // that contains the raw probabilities for each input along with the
+    // final prediction in `match` (either `true` or `false`).
+    // If neither prediction exceeds the threshold, `match` is `null`.
+
+    console.log(predictions);
+
 
