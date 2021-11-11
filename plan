@@ -1,0 +1,47 @@
+I just need a space where I can think through this app.
+
+Lab Guidelines:
+Create all CRUD routes for at least one model. Use the red, green, refactor process.
+
+You should have some interaction to put in your service. Some examples:
+
+send an email with Amazon SES
+fetch from a web API to fill in data
+save a file to Amazon S3
+use the tensorflow toxicity model to reject toxic text
+
+CRUD routes-
+POST
+GET
+GETID
+PUT 
+DELETE
+
+
+https://github.com/tensorflow/tfjs-models/tree/master/toxicity
+--This would be cool for future reference. Sus out toxic messages for websites. 
+--not exactly sure how to use this, but I will forsure ask. 
+
+From the File:
+-- got it downloaded via $ npm install @tensorflow/tfjs @tensorflow-models/toxicity
+-- require('@tensorflow/tfjs');
+const toxicity = require('@tensorflow-models/toxicity');
+
+-const threshold = 0.9; ---going to start with this and possible play around with it if there is time
+
+// Load the model. Users optionally pass in a threshold and an array of
+// labels to include.
+toxicity.load(threshold).then(model => {
+  const sentences = ['you suck'];  --- instead of you suck, I could do a req.body here and then the test will go through it
+
+--this part could even be a middleware, throwing it in on prediction. do the next() like we were shown in class. 
+
+  model.classify(sentences).then(predictions => {
+    // `predictions` is an array of objects, one for each prediction head,
+    // that contains the raw probabilities for each input along with the
+    // final prediction in `match` (either `true` or `false`).
+    // If neither prediction exceeds the threshold, `match` is `null`.
+
+    console.log(predictions);
+
+
